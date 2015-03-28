@@ -17,6 +17,7 @@ body
 p
 {
     color: white;
+    display: block;
 }
 
 .controls
@@ -28,6 +29,16 @@ p
 {
     display: block;
     vertical-align: top;
+}
+.picker
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.colors
+{
+    display: inline-block;
 }
 
 button
