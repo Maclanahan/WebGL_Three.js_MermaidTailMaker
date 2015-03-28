@@ -4,11 +4,13 @@
  * and open the template in the editor.
  */
 var stage = new Kinetic.Stage(
-        {
+        {            
             container: "cont",
             width: 256,
             height: 256
         });
+        
+
 
 var layerSkin = new Kinetic.Layer();
 var layerBase = new Kinetic.Layer();
@@ -51,7 +53,7 @@ imgSkin.onload = function()
     stage.add(layerSkin);
     
     sortLayers();
-    
+    changeSkinColor();
     changeTextureFromCanvas();
 };
 
@@ -72,7 +74,7 @@ imgBase.onload = function()
     stage.add(layerBase);
     
     sortLayers();
-    
+    changeBaseColor();
     changeTextureFromCanvas();
 };
 
@@ -93,7 +95,7 @@ imgTummy.onload = function()
     stage.add(layerTummy);
     
     sortLayers();
-    
+    changeTummyColor();
     changeTextureFromCanvas();
 };
 
@@ -114,7 +116,7 @@ imgStripes.onload = function()
     stage.add(layerStripes);
     
     sortLayers();
-    
+    changeStripeColor();
     changeTextureFromCanvas();
 };
 
@@ -135,7 +137,7 @@ imgSpots.onload = function()
     stage.add(layerSpots);
     
     sortLayers();
-    
+    changeSpotColor();
     changeTextureFromCanvas();
 };
 
@@ -149,6 +151,8 @@ function sortLayers()
     
     //baseSkin.draw();
 }
+
+
 
 function changeTextureFromCanvas()
 {

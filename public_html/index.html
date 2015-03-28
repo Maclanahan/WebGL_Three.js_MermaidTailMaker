@@ -13,53 +13,55 @@
         <script src="js/MTLLoader.js" type="text/javascript"></script>
         <script src="js/OBJMTLLoader.js" type="text/javascript"></script>
         <script type="text/javascript" src="js/webGLTest.js"></script>
+        
+        
         <div class="controls">
             <div class="switches"> 
-                <p>Fin Style</p>
+                <h3>Section 1</h3>
                 <button onclick="changeFinBumpTexture('obj/scalebump.jpg', 0.1)">Scaley Fin</button>
                 <button onclick="changeFinBumpTexture('obj/finWirebump.png', 1)">Classic Fin</button>
             </div>
-            
+            <br/>
             <div class="switches">
             </div>
-            <br>
-            <p>Colors</p>
+
             <div class="switches" id="cont">
-                
+
                 <script type="text/javascript" src="js/canvasTest.js"></script>
                 <br/>
                 <div class="colors">
                     <p>Spots</p>
                     <input class="picker" id="spotPicker" type="color" 
-                           onchange="changeSpotColor()" value ="#ffffff"/>
+                           onchange="changeSpotColor()" value ="#fac303"/>
                 </div>
-                
+
                 <div class="colors">
                     <p>Base</p>
                     <input class="picker" id="basePicker" type="color" 
-                           onchange="changeBaseColor()" value ="#93c8d5"/>
+                           onchange="changeBaseColor()" value ="#980000"/>
                 </div>
-                
+
                 <div class="colors">
                     <p>Tummy</p>
                     <input class="picker" id="tummyPicker" type="color" 
-                           onchange="changeTummyColor()" value ="#ffffff"/>
+                           onchange="changeTummyColor()" value ="#fac303"/>
                 </div>
-                
+
                 <div class="colors">
                     <p>Stripes</p>
                     <input class="picker" id="stripePicker" type="color" 
-                           onchange="changeStripeColor()" value ="#ffffff"/>
+                           onchange="changeStripeColor()" value ="#181816"/>
                 </div>
-                
+
                 <div class="colors">
                     <p>Skin</p>
                     <input class="picker" id="skinPicker" type="color" 
-                           onchange="changeSkinColor()" value ="#ffffff"/>
+                           onchange="changeSkinColor()" value ="#7e4c10"/>
                 </div>
-           
+
             </div>
         </div>
+        
         <p>Drag on Tail To Rotate</p>
     </body>
 </html>
