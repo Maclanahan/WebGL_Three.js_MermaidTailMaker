@@ -5,8 +5,8 @@ var targetRotationOnMouseDown = 0;
 var currentBump;
 var mouseX = 0;
 var mouseXOnMouseDown = 0;
-var windowHalfX = window.innerWidth / 2;
-var windowHalfY = window.innerHeight / 2;
+var windowHalfX = window.innerWidth *.66 /2;
+var windowHalfY = window.innerHeight * .88 /2;
 var SCREEN_WIDTH = window.innerWidth * .66;
 var SCREEN_HEIGHT = window.innerHeight * 0.88;
 var scene = new THREE.Scene();
@@ -25,18 +25,12 @@ var geometry = new THREE.BoxGeometry(1, 1, 1);
 var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
 var cube = new THREE.Mesh(geometry, material);
 var cube2 = new THREE.Mesh(geometry, material);
-//scene.add(cube);
-
 
 var directionalLight = new THREE.DirectionalLight(0xffeedd);
 directionalLight.position.set(3, 0, 2).normalize();
-///directionalLight
 scene.add(directionalLight);
-//var lightControls = new THREE.OrbitControls(cube);
-//lightControls.addEventListener('change', render);
 
 var ambient = new THREE.AmbientLight(0x444444);
-//ambient.
 scene.add(ambient);
 camera.position.z = 5;
 
@@ -54,33 +48,21 @@ var onProgress = function (xhr) {
 };
 var onError = function (xhr) {
 };
-//var loader = new THREE.ObjectLoader();
-//loader.load('./obj/box.obj', function(object)
-//        {
-//            scene.add(object);
-//        }
-//);
+
 
 var objectloader = new THREE.OBJLoader(manager);
-//loader.load(obj/box.obj)
 
 objectloader.load('obj/tail4.obj', function (object)
 {
     object.traverse(function (child)
     {
-        var bump = THREE.ImageUtils.loadTexture("img/scalebump.png");
-        //mapHeight.offset.set( 5, 5 );
-        //bump.wrapS = bump.wrapT = THREE.RepeatWrapping;
-        //bump.repeat.set( 3, 3 );
-        //mapHeight.format = THREE.RGBFormat;
-        //bump.needsUpdate = true;
+        var bump = THREE.ImageUtils.loadTexture("img/" + "classic" + "/scalebump.png");
 
-        //child.material = material_shh;
         child.material = new THREE.MeshPhongMaterial(
         {
             color: 0xffffff,
             shininess: 10,
-            map: THREE.ImageUtils.loadTexture("obj/tailcolorcolor.png"),
+            //map: THREE.ImageUtils.loadTexture("obj/tailcolorcolor.png"),
             bumpMap: bump,
             bumpScale: .05,
             //alphaMap: THREE.ImageUtils.loadTexture("obj/finWire.png"),
@@ -94,27 +76,19 @@ objectloader.load('obj/tail4.obj', function (object)
     });
     cube2 = object;
     cube2.position.y -= .4;
-    //cube2.position.x -= 3;
     scene.add(object);
 }, onProgress, onError);
 objectloader.load('obj/fin.obj', function (object)
 {
     object.traverse(function (child)
     {
-        var bump = THREE.ImageUtils.loadTexture("obj/finWirebump.png");
-        currentBump = "fin";
-        //mapHeight.offset.set( 5, 5 );
-        bump.wrapS = bump.wrapT = THREE.RepeatWrapping;
-        //bump.repeat.set( 3, 3 );
-        //mapHeight.format = THREE.RGBFormat;
-        //bump.needsUpdate = true;
+        var bump = THREE.ImageUtils.loadTexture("img/" + imageFinPath + "/flukebump.png");
 
-        //child.material = material_shh;
         child.material = new THREE.MeshPhongMaterial(
                 {
                     color: 0xffffff,
                     shininess: 20,
-                    map: THREE.ImageUtils.loadTexture("obj/tailcolorcolor.png"),
+                    //map: THREE.ImageUtils.loadTexture("img/flukeBase.png"),
                     bumpMap: bump,
                     bumpScale: 1,
                     
@@ -128,10 +102,13 @@ objectloader.load('obj/fin.obj', function (object)
     });
     cube = object;
     cube.position.y -= .4;
-    //cube.rotation.x = 99;
     scene.add(object);
 }, onProgress, onError);
+
+
 render();
+
+
 document.addEventListener('mousedown', onDocumentMouseDown, false);
 document.addEventListener('touchstart', onDocumentTouchStart, false);
 document.addEventListener('touchmove', onDocumentTouchMove, false);
@@ -260,6 +237,29 @@ function changeTexture(tex)
         //child.material.map.needsUpdate = true;
         child.material.needsUpdate = true;
     });
+    
+//    cube.traverse(function (child)
+//    {
+//        child.material.color.setHex(0xffffff);
+//        child.material.map = new THREE.ImageUtils.loadTexture(tex);
+//        //child.material.map.needsUpdate = true;
+//        child.material.needsUpdate = true;
+//    });
+    
+}
+
+function changeFinTexture(tex)
+{
+    //console.log(tex);
+    
+    
+//    cube2.traverse(function (child)
+//    {
+//        child.material.color.setHex(0xffffff);
+//        child.material.map = new THREE.ImageUtils.loadTexture(tex);
+//        //child.material.map.needsUpdate = true;
+//        child.material.needsUpdate = true;
+//    });
     
     cube.traverse(function (child)
     {
