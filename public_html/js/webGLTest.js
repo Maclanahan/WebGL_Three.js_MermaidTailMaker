@@ -163,7 +163,7 @@ function onDocumentMouseOut(event) {
 
 function onDocumentTouchStart(event) {
 
-    if (event.touches.length === 1) {
+    if (event.touches.length === 1 && event.touches[0].pageX < SCREEN_WIDTH) {
 
         event.preventDefault();
         mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
@@ -174,7 +174,7 @@ function onDocumentTouchStart(event) {
 
 function onDocumentTouchMove(event) {
 
-    if (event.touches.length === 1) {
+    if (event.touches.length === 1 && event.touches[0].pageX < SCREEN_WIDTH) {
 
         event.preventDefault();
         mouseX = event.touches[ 0 ].pageX - windowHalfX;
