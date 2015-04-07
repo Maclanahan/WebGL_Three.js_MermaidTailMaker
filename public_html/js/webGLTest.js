@@ -43,7 +43,7 @@ manager.onProgress = function (item, loaded, total)
 var onProgress = function (xhr) {
     if (xhr.lengthComputable) {
         var percentComplete = xhr.loaded / xhr.total * 100;
-        console.log(Math.round(percentComplete, 2) + '% downloaded');
+//console.log(Math.round(percentComplete, 2) + '% downloaded');
     }
 };
 var onError = function (xhr) {
@@ -72,11 +72,13 @@ objectloader.load('obj/tail4.obj', function (object)
             wrapAround: true
             //metal: true
         });
-        child.material.bumpMap.repeat.set(.5, .5);
+        //child.material.bumpMap.repeat.set(.5, .5);
     });
     cube2 = object;
     cube2.position.y -= .4;
     scene.add(object);
+    
+    //changeTextureFromCanvas();
 }, onProgress, onError);
 objectloader.load('obj/fin.obj', function (object)
 {
@@ -98,11 +100,13 @@ objectloader.load('obj/fin.obj', function (object)
                     wrapAround: true
                             //metal: true
                 });
-        child.material.bumpMap.repeat.set(.5, .5);
+        //child.material.bumpMap.repeat.set(.5, .5);
     });
     cube = object;
     cube.position.y -= .4;
     scene.add(object);
+    
+    //changeTextureFromCanvas();
 }, onProgress, onError);
 
 
@@ -127,15 +131,16 @@ function onWindowResize(event) {
 }
 
 function onDocumentMouseDown(event) {
-
-    event.preventDefault();
-    document.addEventListener('mousemove', onDocumentMouseMove, false);
-    document.addEventListener('mouseup', onDocumentMouseUp, false);
-    document.addEventListener('mouseout', onDocumentMouseOut, false);
-    mouseXOnMouseDown = event.clientX - windowHalfX;
-    targetRotationOnMouseDown = targetRotation;
+    if(event.clientX < SCREEN_WIDTH)
+    {
+        event.preventDefault();
+        document.addEventListener('mousemove', onDocumentMouseMove, false);
+        document.addEventListener('mouseup', onDocumentMouseUp, false);
+        document.addEventListener('mouseout', onDocumentMouseOut, false);
+        mouseXOnMouseDown = event.clientX - windowHalfX;
+        targetRotationOnMouseDown = targetRotation;
+    }
 }
-
 function onDocumentMouseMove(event) {
 
     mouseX = event.clientX - windowHalfX;
@@ -263,6 +268,7 @@ function changeFinTexture(tex)
     
     cube.traverse(function (child)
     {
+        //console.log("here");
         child.material.color.setHex(0xffffff);
         child.material.map = new THREE.ImageUtils.loadTexture(tex);
         //child.material.map.needsUpdate = true;

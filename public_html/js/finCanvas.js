@@ -242,8 +242,9 @@ function resetFin()
     //layerFinBase.remove(imgFinBase);
     layerFinTummy.remove(imgFinTummy);
     //layerFin
-
+    layerFinTummy.draw();
     //imgFinBase.src = "img/" + imageFinPath + "/flukeBase.png";
+    imgFinTummy = new Image();
     imgFinTummy.src = "img/" + imageFinPath + "/fluketummy.png";
     //imgFinStripes.src = "img/" + imageFinPath + "/flukesides.png";
     //imgFinSpots.src = "img/" + imageFinPath + "/flukespots.png";
@@ -276,26 +277,26 @@ function resetFin()
 //        changeFinTextureFromCanvas();
 //    };
 //
-//    imgFinTummy.onload = function ()
-//    {
-//        //console.log("here");
-//        baseFinTummy = new Kinetic.Image(
-//                {
-//                    x: 0,
-//                    y: 0,
-//                    image: imgFinTummy,
-//                    width: 256,
-//                    height: 256
-//                });
-//
-//        layerFinTummy.add(baseFinTummy);
-//
-//        stageFin.add(layerFinTummy);
-//
-//        sortFinLayers();
-//        changeFinTummyColor();
-//        changeFinTextureFromCanvas();
-//    };
+    imgFinTummy.onload = function ()
+    {
+        //console.log("here");
+        baseFinTummy = new Kinetic.Image(
+                {
+                    x: 0,
+                    y: 0,
+                    image: imgFinTummy,
+                    width: 256,
+                    height: 256
+                });
+
+        layerFinTummy.add(baseFinTummy);
+
+        stageFin.add(layerFinTummy);
+
+        sortFinLayers();
+        changeFinTummyColor();
+        changeFinTextureFromCanvas();
+    };
 
 //    imgFinStripes.onload = function ()
 //    {

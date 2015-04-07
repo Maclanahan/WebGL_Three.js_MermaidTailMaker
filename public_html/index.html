@@ -4,89 +4,49 @@
         <meta charset='utf-8'/>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <title>Tail Viewer</title>
-        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <link href="styles/style.css" rel="stylesheet" type="text/css"/>
+        <link href="styles/spectrum.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/pathHandler.js" type="text/javascript"></script>
         <script src="js/three.js" type="text/javascript"></script>
         <script src="js/kinetic.min.js" type="text/javascript"></script>
         <script src="js/OBJLoader.js" type="text/javascript"></script>
         <script src="js/webGLTest.js" type="text/javascript"></script>
-        
-        
+        <script src="js/spectrum.js" type="text/javascript"></script>
+
+
+
         <div class="controls">
-           
-            <div class="switches">
-                <p>Tail Color</p>
-                <div class="textureCanvas" id="tailcontent">
-                    <script type="text/javascript" src="js/tailCanvas.js"></script>
-                </div>
-                                
-                <div class="colors">
-                    <p>Spots</p>
-                    <input class="picker" id="spotPicker" type="color" 
-                           onchange="changeSpotColor()" value ="#fac303"/>
-                </div>
 
-                <div class="colors">
-                    <p>Base</p>
-                    <input class="picker" id="basePicker" type="color" 
-                           onchange="changeBaseColor()" value ="#980000"/>
-                </div>
-
-                <div class="colors">
-                    <p>Tummy</p>
-                    <input class="picker" id="tummyPicker" type="color" 
-                           onchange="changeTummyColor()" value ="#fac303"/>
-                </div>
-
-                <div class="colors">
-                    <p>Stripes</p>
-                    <input class="picker" id="stripePicker" type="color" 
-                           onchange="changeStripeColor()" value ="#181816"/>
-                </div>
-
-                <div class="colors">
-                    <p>Skin</p>
-                    <input class="picker" id="skinPicker" type="color" 
-                           onchange="changeSkinColor()" value ="#7e4c10"/>
-                </div>
-
+            <div class="switches" id="control-container">
+                <p>Tail Colors</p>
             </div>
-            
-           
-            <div class="switches">
-                <button onclick="changeFinStyle('minimal')">Minimal Design</button>
-                <div class="textureFinCanvas" id="fincontent">
-                    <script type="text/javascript" src="js/finCanvas.js"></script>
-                </div>
-                <p>Fluke Color</p>
-                <div class="colors">
-                    <p>Spots</p>
-                    <input class="picker" id="spotFinPicker" type="color" 
-                           onchange="changeFinSpotColor()" value ="#fac303"/>
-                </div>
 
-                <div class="colors">
-                    <p>Base</p>
-                    <input class="picker" id="baseFinPicker" type="color" 
-                           onchange="changeFinBaseColor()" value ="#980000"/>
-                </div>
-
-                <div class="colors">
-                    <p>Tummy</p>
-                    <input class="picker" id="tummyFinPicker" type="color" 
-                           onchange="changeFinTummyColor()" value ="#181816"/>
-                </div>
-
-                <div class="colors">
-                    <p>Sides</p>
-                    <input class="picker" id="stripeFinPicker" type="color" 
-                           onchange="changeFinStripeColor()" value ="#181816"/>
-                </div>
+            <div class="switches" id="control-fin-container">
+                <p>Fin Colors</p>
             </div>
+
+            <div class="textureCanvas" id="tailcontent">
+                <script type="text/javascript" src="js/tailUniversalCanvas.js"></script>
+            </div>
+
+            <p>If Tail is all black, click the refresh button</p>
+            <button onclick="changeTextureFromCanvas()">Refresh</button>
+
+
         </div>
-        
+
         <p>Drag on Tail To Rotate</p>
+
+
+        <script>
+            $(".colorP").spectrum(
+                    {
+                        preferredFormat: "hex3"
+                                //color: val 
+                    });
+        </script>
     </body>
 </html>

@@ -23,11 +23,15 @@ p
 
 .controls
 {
+    min-width: 80px;
+    max-width: 30vw;
     display: inline-block;
     vertical-align: top;
 }
 .switches
 {
+    //float: right;
+    float: top;
     display: block;
     vertical-align: top;
     border: solid;
@@ -37,16 +41,18 @@ p
 }
 .picker
 {
-    display: inline-block;
+    //display: block;
     vertical-align: top;
 }
 
 .colors
 {
+    //alignment-adjust: central;
+    //width: 70px;
+    display: inline-block;
     border: solid;
     border-color: white;
     border-width: 2px;
-    display: inline-block;
     margin: 2px 2px 2px 2px;
     padding: 2px 2px 2px 2px;
     
@@ -60,17 +66,17 @@ button
 .textureCanvas
 {
     position: absolute;
-    left: -10000px;
-    top: -10000px;
+    left: -1000px;
+    top: -1000px;
     z-index: -1;
     
 }
 
 .textureFinCanvas
 {
-/*    position: absolute;
+    position: absolute;
     left: -1000px;
     top: -1000px;
-    z-index: -1;*/
+    z-index: -1;
     
 }
