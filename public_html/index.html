@@ -4,21 +4,21 @@
         <meta charset='utf-8'/>
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
         <title>Tail Viewer</title>
-        <link href="styles/style.css" rel="stylesheet" type="text/css"/>
-        <link href="styles/spectrum.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="styles/style.css" rel="stylesheet" type="text/css"/>
+        <link href="styles/spectrum.css" rel="stylesheet" type="text/css"/>-->
     </head>
     <body>
-        <script src="js/jquery.js" type="text/javascript"></script>
+        <!--<script src="js/jquery.js" type="text/javascript"></script>
         <script src="js/pathHandler.js" type="text/javascript"></script>
         <script src="js/three.js" type="text/javascript"></script>
         <script src="js/kinetic.min.js" type="text/javascript"></script>
         <script src="js/OBJLoader.js" type="text/javascript"></script>
         <script src="js/webGLTest.js" type="text/javascript"></script>
         <script src="js/spectrum.js" type="text/javascript"></script>
+-->
 
 
-
-        <div class="controls">
+        <!--<div class="controls">
 
             <div class="switches" id="control-container">
                 <p>Tail Colors</p>
@@ -27,26 +27,34 @@
             <div class="switches" id="control-fin-container">
                 <p>Fin Colors</p>
             </div>
-
-            <div class="textureCanvas" id="tailcontent">
-                <script type="text/javascript" src="js/tailUniversalCanvas.js"></script>
+            
+            <div class="switches" id="control-spine-container">
+                <p>Spine Fin Color</p>
             </div>
 
-            <p>If Tail is all black, click the refresh button</p>
+            <div class="textureCanvas" id="tailcontent">
+                <!--<script type="text/javascript" src="js/tailUniversalCanvas.js"></script>-->
+           <!-- </div>
+
+            <p>If Tail is all black or all white, click the refresh button</p>
             <button onclick="changeTextureFromCanvas()">Refresh</button>
 
-
+            <div class="switches">
+                <p>Flukes</p>
+                <button class="color" onclick="changeFluke('fin')">Classic Fluke</button>
+                <button class="color" onclick="changeFluke('wesleyFluke')">Wesley Fluke</button>
+            </div>
         </div>
 
-        <p>Drag on Tail To Rotate</p>
+        <p>Drag on Tail To Rotate</p>-->
 
 
-        <script>
+        <!--<script>
             $(".colorP").spectrum(
                     {
                         preferredFormat: "hex3"
                                 //color: val 
                     });
-        </script>
+        </script>-->
     </body>
 </html>
